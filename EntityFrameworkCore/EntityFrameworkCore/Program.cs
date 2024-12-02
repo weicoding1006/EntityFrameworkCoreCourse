@@ -12,6 +12,7 @@ namespace EntityFrameworkCore
             {
                 Console.WriteLine($"隊伍ID:{item.TeamId}，隊伍名稱:{item.Name}，創建日期:{item.CreatedDate}");
             }
+            Console.WriteLine("測試");
         }
     }
 }
