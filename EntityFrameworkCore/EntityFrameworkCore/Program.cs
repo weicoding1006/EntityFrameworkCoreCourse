@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkCore.Data;
+using EntityFrameworkCore.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
 
@@ -13,8 +14,13 @@ namespace EntityFrameworkCore
 
             //await GetAllTeams();
             //await GetTeamByIdAsync(2);
+            //await GetFilteredTeams();
+            //await GetCount();
+            //await Aggregate();
+            //await GroupByTeams();
+            await OrderBy();
 
-            await GetFilteredTeams();
+
 
 
             async Task GetAllTeams()
@@ -47,16 +53,93 @@ namespace EntityFrameworkCore
             async Task GetFilteredTeams()
             {
                 Console.WriteLine("請輸入隊伍名稱");
-                string name = Console.ReadLine();
-                var teamsFiltered = await context.Teams.Where(team => team.Name ==  name).ToListAsync();
-                if(teamsFiltered.Count == 0)
+                string searchTerm = Console.ReadLine();
+                var teamsFiltered = await context.Teams.Where(team => team.Name == searchTerm).ToListAsync();
+                //if(teamsFiltered.Count == 0)
+                //{
+                //    Console.WriteLine("找不到隊伍");
+                //    return;
+                //}
+                //foreach (var team in teamsFiltered)
+                //{
+                //    Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                //}
+
+                //使用場景簡單（搜尋包含某段文字），使用 Contains，語法簡潔且足夠應用。
+                var partialMatches = await context.Teams.Where(team => team.Name.Contains(searchTerm)).ToListAsync();
+                //需要更靈活的匹配模式或跨平台一致性，使用 EF.Functions.Like，支持更複雜的查詢需求。
+                //var partialMatches = await context.Teams.Where(team => EF.Functions.Like(team.Name,$"%{searchTerm}%")).ToListAsync();
+                if (partialMatches.Count == 0)
                 {
                     Console.WriteLine("找不到隊伍");
                     return;
                 }
-                foreach (var team in teamsFiltered)
+                foreach(var team in partialMatches)
                 {
                     Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                }
+            }
+            
+            async Task GetCount()
+            {
+                var numberOfTeams = await context.Teams.CountAsync();
+                Console.WriteLine($"總共有{numberOfTeams}個隊伍");
+
+                var numberOfTeamsWithCondition = await context.Teams.CountAsync(team => team.TeamId > 1);
+                Console.WriteLine($"總共有{numberOfTeamsWithCondition}個隊伍");
+            }
+
+            //聚合
+            async Task Aggregate()
+            {
+                //Max
+                var maxTeam = await context.Teams.MaxAsync(team => team.TeamId);
+                Console.WriteLine(maxTeam);
+                //Min
+                var minTeam = await context.Teams.MinAsync(team => team.TeamId);
+                Console.WriteLine(minTeam);
+
+                //Average
+                var avgTeam = await context.Teams.AverageAsync(team => team.TeamId);
+                Console.WriteLine(avgTeam);
+
+                //Sum
+                var sumTeams = await context.Teams.SumAsync(team => team.TeamId);
+                Console.WriteLine(sumTeams);
+            }
+
+            //分組
+            async Task GroupByTeams()
+            {
+                var groupedTeams = context.Teams.GroupBy(q => q.TeamId.ToString());
+                foreach (var group in groupedTeams)
+                {
+                    Console.WriteLine(group.Key);
+                    foreach (var team in group)
+                    {
+                        Console.WriteLine($"分類:{group.Key}，隊伍名稱:{team.Name}");
+                    }
+                }
+            }
+
+            async Task OrderBy()
+            {
+                var orderedTeams = await context.Teams.OrderBy(q => q.Name).ToListAsync();
+                foreach (var team in orderedTeams)
+                {
+                    Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                }
+
+                var maxByDescendOrder = await context.Teams.OrderByDescending(q => q.TeamId).FirstOrDefaultAsync();
+                if (maxByDescendOrder != null)
+                {
+                    Console.WriteLine($"隊伍ID:{maxByDescendOrder.TeamId}，隊伍名稱:{maxByDescendOrder.Name}，創建日期:{maxByDescendOrder.CreatedDate}");
+                }
+
+                var minByDescendingOrder = await context.Teams.OrderBy(q => q.TeamId).FirstOrDefaultAsync();
+                if (minByDescendingOrder != null)
+                {
+                    Console.WriteLine($"隊伍ID:{minByDescendingOrder.TeamId}，隊伍名稱:{minByDescendingOrder.Name}，創建日期:{minByDescendingOrder.CreatedDate}");
                 }
             }
         }
