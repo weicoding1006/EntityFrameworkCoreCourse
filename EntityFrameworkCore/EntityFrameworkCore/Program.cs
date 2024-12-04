@@ -1,4 +1,5 @@
 ﻿using EntityFrameworkCore.Data;
+using EntityFrameworkCore.Data.Dtos;
 using EntityFrameworkCore.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;
@@ -18,8 +19,14 @@ namespace EntityFrameworkCore
             //await GetCount();
             //await Aggregate();
             //await GroupByTeams();
-            await OrderBy();
+            //await OrderBy();
+            //await SkipAndTake();
 
+
+
+
+            await Select();
+ 
 
 
 
@@ -111,7 +118,7 @@ namespace EntityFrameworkCore
             //分組
             async Task GroupByTeams()
             {
-                var groupedTeams = context.Teams.GroupBy(q => q.TeamId.ToString());
+                var groupedTeams = context.Teams.GroupBy(q => q.CreatedDate.Date);
                 foreach (var group in groupedTeams)
                 {
                     Console.WriteLine(group.Key);
@@ -140,6 +147,45 @@ namespace EntityFrameworkCore
                 if (minByDescendingOrder != null)
                 {
                     Console.WriteLine($"隊伍ID:{minByDescendingOrder.TeamId}，隊伍名稱:{minByDescendingOrder.Name}，創建日期:{minByDescendingOrder.CreatedDate}");
+                }
+            }
+
+            //分頁器
+            async Task SkipAndTake()
+            {
+                var recordCount = 3;
+                Console.Write("請輸入頁數 : ");
+                string userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out int page))
+                {
+                    if (page > 0)
+                    {
+                        var teams = await context.Teams.Skip((page - 1) * recordCount).Take(recordCount).ToListAsync();
+                        foreach (var team in teams)
+                        {
+                            Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("輸入不得小於1");
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("請輸入整數");
+                }
+            }
+
+            async Task Select()
+            {
+                var teams = await context.Teams
+                    .Select(q => new TeamInfo { Name = q.Name, CreatedDate = q.CreatedDate })
+                    .ToListAsync();
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}");
                 }
             }
         }
