@@ -21,14 +21,56 @@ namespace EntityFrameworkCore
             //await GroupByTeams();
             //await OrderBy();
             //await SkipAndTake();
+            //await Select();
+            //await AsNoTracking();
 
+            await ListVsIQueryable();
 
+            async Task ListVsIQueryable()
+            {
+                //在大多數情況下，建議使用 IQueryable 來進行資料庫查詢，
+                //因為它能延遲執行，並且只處理需要的資料，效能更高。
+                //List 的方式僅適用於小資料集或對即時性要求不高的場合。
 
+                Console.WriteLine("輸入1，會搜尋ID是1的資料，輸入2會搜尋隊伍名稱是測試隊伍2");
+                var option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("List---------------------------");
+                List<Team> teams = new List<Team>();
+                teams = await context.Teams.ToListAsync();
+                if (option == 1)
+                {
+                    teams = teams.Where(q => q.TeamId == 1).ToList();
+                }
+                else if (option == 2)
+                {
+                    teams = teams.Where(q => q.Name.Contains("測試隊伍2")).ToList();
+                }
 
-            await Select();
- 
+                foreach (var team in teams)
+                {
+                    Console.WriteLine(team.Name);
+                }
+                Console.WriteLine("IQueryable---------------------------");
 
+                //IQueryable節省記憶體，只從資料庫載入需要的資料
+                //延遲執行（Deferred Execution），只在調用 .ToList() 時才真正執行查詢。
+                //適合處理大資料集
+                var teamsAsQueryable = context.Teams.AsQueryable();
+                if (option == 1)
+                {
+                    teamsAsQueryable = teamsAsQueryable.Where(q => q.TeamId == 1);
+                }
+                else if (option == 2)
+                {
+                    teamsAsQueryable = teamsAsQueryable.Where(q => q.Name.Contains("測試隊伍2"));
+                }
+                var result = teamsAsQueryable.ToList();
 
+                foreach (var team in result)
+                {
+                    Console.WriteLine(team.Name);
+                }
+            }
 
             async Task GetAllTeams()
             {
@@ -186,6 +228,15 @@ namespace EntityFrameworkCore
                 foreach (var team in teams)
                 {
                     Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}");
+                }
+            }
+
+            async Task AsNoTracking()
+            {
+                var teams = await context.Teams.AsNoTracking().ToListAsync();
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}，ID:{team.TeamId}");
                 }
             }
         }

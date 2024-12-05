@@ -23,6 +23,8 @@ namespace EntityFrameworkCore.Data
                 "Server=localhost;Database=EntityFrameworkCoreCourse;User=root;Password=password;",
                 ServerVersion.AutoDetect("Server=localhost;Database=EntityFrameworkCoreCourse;User=root;Password=password;")
             )
+
+            //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
             //LogTo 的用途
             //LogTo 是 EF Core 用來記錄操作細節的功能
             //查看 EF Core 如何將 LINQ 查詢轉換為 SQL 查詢
