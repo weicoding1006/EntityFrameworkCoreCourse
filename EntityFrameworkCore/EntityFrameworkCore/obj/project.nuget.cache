@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jNTLBRDioOzPna6m2861vLMDIBYTK5Sbmtjwh98gJ30ogz8JroLDcR5TWxT3VYR8WvSpy3NdsmOiQUzNLC+fLw==",
+  "dgSpecHash": "PofptC85QeHdQWFSiobce+6sM74yS3L94o3KUdur4NkyKftoTF2/NpQ84ZUr90kvwJqzfC6FMKqQIoUCfbo8rA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+  "projectFilePath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\2309013\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\2309013\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

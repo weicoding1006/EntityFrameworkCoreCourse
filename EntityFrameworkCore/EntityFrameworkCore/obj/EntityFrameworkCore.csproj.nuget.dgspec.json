@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj": {}
+    "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj": {
+    "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
+        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
         "projectName": "EntityFrameworkCore.Data",
-        "projectPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
+        "projectPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
         "packagesPath": "C:\\Users\\2309013\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\obj\\",
+        "outputPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\2309013\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj": {
-                "projectPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj"
+              "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj": {
+                "projectPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj": {
+    "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
         "projectName": "EntityFrameworkCore.Domain",
-        "projectPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
+        "projectPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
         "packagesPath": "C:\\Users\\2309013\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\obj\\",
+        "outputPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\2309013\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -152,14 +152,14 @@
         }
       }
     },
-    "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj": {
+    "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+        "projectUniqueName": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
         "projectName": "EntityFrameworkCore",
-        "projectPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
+        "projectPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
         "packagesPath": "C:\\Users\\2309013\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\obj\\",
+        "outputPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\2309013\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -177,8 +177,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj": {
-                "projectPath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj"
+              "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj": {
+                "projectPath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj"
               }
             }
           }

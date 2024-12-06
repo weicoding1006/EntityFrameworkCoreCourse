@@ -24,52 +24,116 @@ namespace EntityFrameworkCore
             //await Select();
             //await AsNoTracking();
 
-            await ListVsIQueryable();
+            //await ListVsIQueryable();
 
-            async Task ListVsIQueryable()
+            //await InsertOneRecored();
+            //await InsertWithLoop();
+
+            //await UpdateWithTracking();
+            //await UpdateWithNoTracking();
+            //await DeleteRecord();
+            await ExecuteUpdate();
+            
+            //更新多筆
+            async Task ExecuteUpdate()
             {
-                //在大多數情況下，建議使用 IQueryable 來進行資料庫查詢，
-                //因為它能延遲執行，並且只處理需要的資料，效能更高。
-                //List 的方式僅適用於小資料集或對即時性要求不高的場合。
+                await context.Coaches.Where(q => q.Name == "Hani").ExecuteUpdateAsync(set => set
+                .SetProperty(prop => prop.Name, "測試")
+                .SetProperty(prop => prop.CreatedDate,DateTime.Now)
+                );
+            }
+            
+            //刪除多筆
+            async Task ExecuteDelete()
+            {
+                await context.Coaches.Where(q => q.Name == "Test").ExecuteDeleteAsync();
+            }
+            async Task DeleteRecord()
+            {
+                var coach = await context.Coaches.FindAsync(12);
+                context.Entry(coach).State = EntityState.Deleted;
+                await context.SaveChangesAsync();
+            }
 
-                Console.WriteLine("輸入1，會搜尋ID是1的資料，輸入2會搜尋隊伍名稱是測試隊伍2");
-                var option = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("List---------------------------");
-                List<Team> teams = new List<Team>();
-                teams = await context.Teams.ToListAsync();
-                if (option == 1)
-                {
-                    teams = teams.Where(q => q.TeamId == 1).ToList();
-                }
-                else if (option == 2)
-                {
-                    teams = teams.Where(q => q.Name.Contains("測試隊伍2")).ToList();
-                }
 
-                foreach (var team in teams)
-                {
-                    Console.WriteLine(team.Name);
-                }
-                Console.WriteLine("IQueryable---------------------------");
+            async Task UpdateWithTracking()
+            {
+                //使用 FindAsync 和追蹤實體進行更新
+                //適合處理少量實體的更新操作，且變更檢測機制減少了開發者手動指定更新範圍的麻煩。
+                //不需要顯式調用 Update，直接修改屬性後保存即可。
+                var coach = await context.Coaches.FindAsync(1); // 從資料庫查找主鍵為1的 Coach
+                coach.Name = "調整";                            // 修改實體的屬性
+                coach.CreatedDate = DateTime.Now;              // 修改另一個屬性
+                await context.SaveChangesAsync();              // 保存更改
+            }
 
-                //IQueryable節省記憶體，只從資料庫載入需要的資料
-                //延遲執行（Deferred Execution），只在調用 .ToList() 時才真正執行查詢。
-                //適合處理大資料集
-                var teamsAsQueryable = context.Teams.AsQueryable();
-                if (option == 1)
-                {
-                    teamsAsQueryable = teamsAsQueryable.Where(q => q.TeamId == 1);
-                }
-                else if (option == 2)
-                {
-                    teamsAsQueryable = teamsAsQueryable.Where(q => q.Name.Contains("測試隊伍2"));
-                }
-                var result = teamsAsQueryable.ToList();
+            async Task UpdateWithNoTracking()
+            {
+                //使用 AsNoTracking 和明確 Update 更新
+                //當實體來自非追蹤模式（如 AsNoTracking），而開發者需要明確更新資料時，這種方式更合適。
+                //非追蹤模式通常用於提升查詢性能，特別是在處理只讀數據時。
+                //整體更新： 會將所有屬性都標記為更新，即使某些屬性沒有實際變化，這可能導致不必要的 SQL 操作
+                //需要顯式調用 Update： 開發者需要更多的手動操作，增加了代碼量。
+                var coach1 = await context.Coaches.AsNoTracking().FirstOrDefaultAsync(q => q.Id == 10);
+                coach1.Name = "測試";
 
-                foreach (var team in result)
+                //更新實體的所有屬性
+                //可能連同導航屬性一起更新
+                //可能影響性能（所有屬性都被包含在更新語句中）
+                //context.Update(coach1);
+
+                //更新實體的所有屬性，但可精確控制哪些屬性被修改
+                //僅影響該實體本身，導航屬性需單獨設置
+                //更高效，因為可以精細化控制需要更新的屬性
+                context.Entry(coach1).State = EntityState.Modified;
+                await context.SaveChangesAsync();
+            }
+
+            async Task InsertOneRecored()
+            {
+                //單筆資料加入
+                var newCoach = new Coach
                 {
-                    Console.WriteLine(team.Name);
-                }
+                    Name = "TestTest",
+                    CreatedDate = DateTime.Now,
+                };
+                await context.Coaches.AddAsync(newCoach);
+                await context.SaveChangesAsync();
+            }
+
+            async Task InsertWithLoop()
+            {
+                //單筆資料加入
+                var newCoach = new Coach
+                {
+                    Name = "Test",
+                    CreatedDate = DateTime.Now,
+                };
+
+
+                //多筆資料
+                var newCoach1 = new Coach
+                {
+                    Name = "Hani",
+                    CreatedDate = DateTime.Now,
+                };
+                List<Coach> coaches = new List<Coach>
+            {
+                newCoach,
+                newCoach1
+            };
+                //foreach 方式
+                //由於在迴圈中調用了多次 AddAsync，這可能會產生額外的上下文操作，但影響不大，因為資料庫寫入仍是一次完成。
+                //foreach(var coach in coaches)
+                //{
+                //    await context.Coaches.AddAsync(coach);
+                //}
+                //await context.SaveChangesAsync();
+
+                //Batch Insert
+                //相較於逐筆加入的 foreach 方式，AddRangeAsync 性能更高，因為它是針對整個集合進行處理，減少了多次上下文操作的開銷。
+                await context.Coaches.AddRangeAsync(coaches);
+                await context.SaveChangesAsync();
             }
 
             async Task GetAllTeams()
@@ -237,6 +301,52 @@ namespace EntityFrameworkCore
                 foreach (var team in teams)
                 {
                     Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}，ID:{team.TeamId}");
+                }
+            }
+
+            async Task ListVsIQueryable()
+            {
+                //在大多數情況下，建議使用 IQueryable 來進行資料庫查詢，
+                //因為它能延遲執行，並且只處理需要的資料，效能更高。
+                //List 的方式僅適用於小資料集或對即時性要求不高的場合。
+
+                Console.WriteLine("輸入1，會搜尋ID是1的資料，輸入2會搜尋隊伍名稱是測試隊伍2");
+                var option = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("List---------------------------");
+                List<Team> teams = new List<Team>();
+                teams = await context.Teams.ToListAsync();
+                if (option == 1)
+                {
+                    teams = teams.Where(q => q.TeamId == 1).ToList();
+                }
+                else if (option == 2)
+                {
+                    teams = teams.Where(q => q.Name.Contains("測試隊伍2")).ToList();
+                }
+
+                foreach (var team in teams)
+                {
+                    Console.WriteLine(team.Name);
+                }
+                Console.WriteLine("IQueryable---------------------------");
+
+                //IQueryable節省記憶體，只從資料庫載入需要的資料
+                //延遲執行（Deferred Execution），只在調用 .ToList() 時才真正執行查詢。
+                //適合處理大資料集
+                var teamsAsQueryable = context.Teams.AsQueryable();
+                if (option == 1)
+                {
+                    teamsAsQueryable = teamsAsQueryable.Where(q => q.TeamId == 1);
+                }
+                else if (option == 2)
+                {
+                    teamsAsQueryable = teamsAsQueryable.Where(q => q.Name.Contains("測試隊伍2"));
+                }
+                var result = teamsAsQueryable.ToList();
+
+                foreach (var team in result)
+                {
+                    Console.WriteLine(team.Name);
                 }
             }
         }

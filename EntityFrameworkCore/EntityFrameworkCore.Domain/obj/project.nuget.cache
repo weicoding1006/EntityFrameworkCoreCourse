@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m76SMbzc+Qfhlxr/SZxG4MYxYRXAlQcScHnGqwOTAf0uUCg/+kGH87yPrTeNS4no36/zx7Oqyhkwg5A1DeGRZg==",
+  "dgSpecHash": "rv2sPf01SGPycLVzqMjQf1RfQGTbGRwtEUrH7jNXnL5Ed/w1obWsVZGF1vlLvmdDi0NxO3NdOsJUICliv6faUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\2309013\\Desktop\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
+  "projectFilePath": "C:\\Users\\2309013\\Desktop\\課程\\EFCore課程\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
