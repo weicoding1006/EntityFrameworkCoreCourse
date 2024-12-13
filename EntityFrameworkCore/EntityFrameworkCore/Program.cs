@@ -13,7 +13,7 @@ namespace EntityFrameworkCore
         {
             using var context = new AppDbContext();
 
-            //await GetAllTeams();
+            await GetAllTeams();
             //await GetTeamByIdAsync(2);
             //await GetFilteredTeams();
             //await GetCount();
@@ -32,8 +32,8 @@ namespace EntityFrameworkCore
             //await UpdateWithTracking();
             //await UpdateWithNoTracking();
             //await DeleteRecord();
-            await ExecuteUpdate();
-            
+            //await ExecuteUpdate();
+
             //更新多筆
             async Task ExecuteUpdate()
             {
@@ -141,7 +141,7 @@ namespace EntityFrameworkCore
                 var teams = await context.Teams.ToListAsync();
                 foreach (var team in teams)
                 {
-                    Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                    Console.WriteLine($"隊伍ID:{team.Id}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
                 }
             }
 
@@ -160,7 +160,7 @@ namespace EntityFrameworkCore
                     Console.WriteLine("查無此隊伍");
                     return;
                 }
-                Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                Console.WriteLine($"隊伍ID:{team.Id}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
             }
         
             async Task GetFilteredTeams()
@@ -189,7 +189,7 @@ namespace EntityFrameworkCore
                 }
                 foreach(var team in partialMatches)
                 {
-                    Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                    Console.WriteLine($"隊伍ID:{team.Id}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
                 }
             }
             
@@ -198,7 +198,7 @@ namespace EntityFrameworkCore
                 var numberOfTeams = await context.Teams.CountAsync();
                 Console.WriteLine($"總共有{numberOfTeams}個隊伍");
 
-                var numberOfTeamsWithCondition = await context.Teams.CountAsync(team => team.TeamId > 1);
+                var numberOfTeamsWithCondition = await context.Teams.CountAsync(team => team.Id > 1);
                 Console.WriteLine($"總共有{numberOfTeamsWithCondition}個隊伍");
             }
 
@@ -206,18 +206,18 @@ namespace EntityFrameworkCore
             async Task Aggregate()
             {
                 //Max
-                var maxTeam = await context.Teams.MaxAsync(team => team.TeamId);
+                var maxTeam = await context.Teams.MaxAsync(team => team.Id);
                 Console.WriteLine(maxTeam);
                 //Min
-                var minTeam = await context.Teams.MinAsync(team => team.TeamId);
+                var minTeam = await context.Teams.MinAsync(team => team.Id);
                 Console.WriteLine(minTeam);
 
                 //Average
-                var avgTeam = await context.Teams.AverageAsync(team => team.TeamId);
+                var avgTeam = await context.Teams.AverageAsync(team => team.Id);
                 Console.WriteLine(avgTeam);
 
                 //Sum
-                var sumTeams = await context.Teams.SumAsync(team => team.TeamId);
+                var sumTeams = await context.Teams.SumAsync(team => team.Id);
                 Console.WriteLine(sumTeams);
             }
 
@@ -240,19 +240,19 @@ namespace EntityFrameworkCore
                 var orderedTeams = await context.Teams.OrderBy(q => q.Name).ToListAsync();
                 foreach (var team in orderedTeams)
                 {
-                    Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                    Console.WriteLine($"隊伍ID:{team.Id}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
                 }
 
-                var maxByDescendOrder = await context.Teams.OrderByDescending(q => q.TeamId).FirstOrDefaultAsync();
+                var maxByDescendOrder = await context.Teams.OrderByDescending(q => q.Id).FirstOrDefaultAsync();
                 if (maxByDescendOrder != null)
                 {
-                    Console.WriteLine($"隊伍ID:{maxByDescendOrder.TeamId}，隊伍名稱:{maxByDescendOrder.Name}，創建日期:{maxByDescendOrder.CreatedDate}");
+                    Console.WriteLine($"隊伍ID:{maxByDescendOrder.Id}，隊伍名稱:{maxByDescendOrder.Name}，創建日期:{maxByDescendOrder.CreatedDate}");
                 }
 
-                var minByDescendingOrder = await context.Teams.OrderBy(q => q.TeamId).FirstOrDefaultAsync();
+                var minByDescendingOrder = await context.Teams.OrderBy(q => q.Id).FirstOrDefaultAsync();
                 if (minByDescendingOrder != null)
                 {
-                    Console.WriteLine($"隊伍ID:{minByDescendingOrder.TeamId}，隊伍名稱:{minByDescendingOrder.Name}，創建日期:{minByDescendingOrder.CreatedDate}");
+                    Console.WriteLine($"隊伍ID:{minByDescendingOrder.Id}，隊伍名稱:{minByDescendingOrder.Name}，創建日期:{minByDescendingOrder.CreatedDate}");
                 }
             }
 
@@ -269,7 +269,7 @@ namespace EntityFrameworkCore
                         var teams = await context.Teams.Skip((page - 1) * recordCount).Take(recordCount).ToListAsync();
                         foreach (var team in teams)
                         {
-                            Console.WriteLine($"隊伍ID:{team.TeamId}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
+                            Console.WriteLine($"隊伍ID:{team.Id}，隊伍名稱:{team.Name}，創建日期:{team.CreatedDate}");
                         }
                     }
                     else
@@ -300,7 +300,7 @@ namespace EntityFrameworkCore
                 var teams = await context.Teams.AsNoTracking().ToListAsync();
                 foreach (var team in teams)
                 {
-                    Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}，ID:{team.TeamId}");
+                    Console.WriteLine($"隊伍名稱:{team.Name}，創隊日期:{team.CreatedDate}，ID:{team.Id}");
                 }
             }
 
@@ -317,7 +317,7 @@ namespace EntityFrameworkCore
                 teams = await context.Teams.ToListAsync();
                 if (option == 1)
                 {
-                    teams = teams.Where(q => q.TeamId == 1).ToList();
+                    teams = teams.Where(q => q.Id == 1).ToList();
                 }
                 else if (option == 2)
                 {
@@ -336,7 +336,7 @@ namespace EntityFrameworkCore
                 var teamsAsQueryable = context.Teams.AsQueryable();
                 if (option == 1)
                 {
-                    teamsAsQueryable = teamsAsQueryable.Where(q => q.TeamId == 1);
+                    teamsAsQueryable = teamsAsQueryable.Where(q => q.Id == 1);
                 }
                 else if (option == 2)
                 {

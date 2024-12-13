@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|solutionrelative:entityframeworkcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.domain\\league.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|solutionrelative:entityframeworkcore.domain\\league.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.domain\\coach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|solutionrelative:entityframeworkcore.domain\\coach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.domain\\basedomainmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|solutionrelative:entityframeworkcore.domain\\basedomainmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\configurations\\teamconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\configurations\\teamconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|solutionrelative:entityframeworkcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.domain\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|solutionrelative:entityframeworkcore.domain\\team.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\dtos\\teaminfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +59,8 @@
       "RelativeMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|solutionrelative:entityframeworkcore\\entityframeworkcore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\migrations\\20241201054855_demo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\migrations\\20241201054855_demo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\migrations\\20241212063556_\u52A0\u5165\u66F4\u591Amodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\migrations\\20241212063556_\u52A0\u5165\u66F4\u591Amodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +70,123 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241213025938_\u589E\u52A0\u521D\u59CBLeague.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T02:59:39.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TeamConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Configurations\\TeamConfiguration.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Configurations\\TeamConfiguration.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Configurations\\TeamConfiguration.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Configurations\\TeamConfiguration.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAACQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T02:32:16.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20241212063556_\u52A0\u5165\u66F4\u591AModel.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212063556_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241212063556_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212063556_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241212063556_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T06:35:56.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "20241212030907_\u52A0\u5165\u66F4\u591AModel.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241212030907_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T03:09:07.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20241212030718_\u52A0\u5165\u66F4\u591AModel.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241212030718_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T03:07:18.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20241212020406_\u52A0\u5165\u66F4\u591AModel.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241212020406_\u52A0\u5165\u66F4\u591AModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T02:04:07.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Team.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\Team.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Domain\\Team.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\Team.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Domain\\Team.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T01:07:23.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BaseDomainModel.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\BaseDomainModel.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Domain\\BaseDomainModel.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\BaseDomainModel.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Domain\\BaseDomainModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T01:06:42.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "League.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\League.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Domain\\League.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\League.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Domain\\League.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-12T01:06:15.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "TeamInfo.cs",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Dtos\\TeamInfo.cs",
               "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Dtos\\TeamInfo.cs",
@@ -62,43 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs",
-              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs",
-              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs",
-              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs",
-              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241202014335_\u8CC7\u6599\u5EAB\u9077\u79FB(\u516C\u53F8\u96FB\u8166).cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T01:43:35.83Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs",
-              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs",
-              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs",
-              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs",
-              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241201135657_\u589E\u52A0\u521D\u59CB\u8CC7\u6599.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T13:56:57.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "20241201054855_Demo.cs",
-              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241201054855_Demo.cs",
-              "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\Migrations\\20241201054855_Demo.cs",
-              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\Migrations\\20241201054855_Demo.cs",
-              "RelativeToolTip": "EntityFrameworkCore.Data\\Migrations\\20241201054855_Demo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T05:48:55.496Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "EntityFrameworkCore.csproj",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore\\EntityFrameworkCore.csproj",
               "RelativeDocumentMoniker": "EntityFrameworkCore\\EntityFrameworkCore.csproj",
@@ -110,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "EntityFrameworkCore.Data.csproj",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
               "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj",
@@ -128,33 +228,33 @@
               "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\AppDbContext.cs",
               "RelativeToolTip": "EntityFrameworkCore.Data\\AppDbContext.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAcwBoAAABJAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAuwC0AAABaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T05:18:00.462Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Coach.cs",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\Coach.cs",
               "RelativeDocumentMoniker": "EntityFrameworkCore.Domain\\Coach.cs",
               "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\Coach.cs",
               "RelativeToolTip": "EntityFrameworkCore.Domain\\Coach.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T04:57:32.457Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore\\Program.cs",
               "RelativeDocumentMoniker": "EntityFrameworkCore\\Program.cs",
               "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore\\Program.cs",
               "RelativeToolTip": "EntityFrameworkCore\\Program.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACkAAABDAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAADwvxsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T04:51:43.288Z",
               "EditorCaption": ""
