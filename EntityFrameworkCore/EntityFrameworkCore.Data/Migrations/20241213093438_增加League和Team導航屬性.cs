@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EntityFrameworkCore.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class 加入更多Model : Migration
+    public partial class 增加League和Team導航屬性 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -44,6 +44,8 @@ namespace EntityFrameworkCore.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<string>(type: "longtext", nullable: true)
@@ -88,8 +90,8 @@ namespace EntityFrameworkCore.Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    LeagueId = table.Column<int>(type: "int", nullable: false),
                     CoachId = table.Column<int>(type: "int", nullable: false),
+                    LeagueId = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<string>(type: "longtext", nullable: true)
@@ -100,18 +102,38 @@ namespace EntityFrameworkCore.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teams", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Teams_Leagues_LeagueId",
+                        column: x => x.LeagueId,
+                        principalTable: "Leagues",
+                        principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Leagues",
+                columns: new[] { "Id", "CreatedBy", "CreatedDate", "ModifiedBy", "ModifiedDate", "Name" },
+                values: new object[,]
+                {
+                    { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試聯盟1" },
+                    { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試聯盟2" },
+                    { 3, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試聯盟3" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Teams",
                 columns: new[] { "Id", "CoachId", "CreatedBy", "CreatedDate", "LeagueId", "ModifiedBy", "ModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, 0, null, new DateTime(2024, 12, 12, 6, 35, 56, 77, DateTimeKind.Unspecified).AddTicks(5371), 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍1" },
-                    { 2, 0, null, new DateTime(2024, 12, 12, 6, 35, 56, 77, DateTimeKind.Unspecified).AddTicks(5382), 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍2" },
-                    { 3, 0, null, new DateTime(2024, 12, 12, 6, 35, 56, 77, DateTimeKind.Unspecified).AddTicks(5384), 0, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍3" }
+                    { 1, 0, null, new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8364), null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍1" },
+                    { 2, 0, null, new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8373), null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍2" },
+                    { 3, 0, null, new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8374), null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "測試隊伍3" }
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Teams_LeagueId",
+                table: "Teams",
+                column: "LeagueId");
         }
 
         /// <inheritdoc />
@@ -121,13 +143,13 @@ namespace EntityFrameworkCore.Data.Migrations
                 name: "Coaches");
 
             migrationBuilder.DropTable(
-                name: "Leagues");
-
-            migrationBuilder.DropTable(
                 name: "Matches");
 
             migrationBuilder.DropTable(
                 name: "Teams");
+
+            migrationBuilder.DropTable(
+                name: "Leagues");
         }
     }
 }

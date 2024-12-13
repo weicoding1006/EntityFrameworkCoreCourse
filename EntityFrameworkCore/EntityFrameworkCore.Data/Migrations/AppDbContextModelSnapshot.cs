@@ -157,7 +157,7 @@ namespace EntityFrameworkCore.Data.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("LeagueId")
+                    b.Property<int?>("LeagueId")
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedBy")
@@ -171,6 +171,8 @@ namespace EntityFrameworkCore.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LeagueId");
+
                     b.ToTable("Teams");
 
                     b.HasData(
@@ -178,8 +180,7 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 1,
                             CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 2, 59, 38, 440, DateTimeKind.Unspecified).AddTicks(2171),
-                            LeagueId = 0,
+                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8364),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍1"
                         },
@@ -187,8 +188,7 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 2,
                             CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 2, 59, 38, 440, DateTimeKind.Unspecified).AddTicks(2183),
-                            LeagueId = 0,
+                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8373),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍2"
                         },
@@ -196,11 +196,24 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 3,
                             CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 2, 59, 38, 440, DateTimeKind.Unspecified).AddTicks(2184),
-                            LeagueId = 0,
+                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8374),
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍3"
                         });
+                });
+
+            modelBuilder.Entity("EntityFrameworkCore.Domain.Team", b =>
+                {
+                    b.HasOne("EntityFrameworkCore.Domain.League", "League")
+                        .WithMany("Teams")
+                        .HasForeignKey("LeagueId");
+
+                    b.Navigation("League");
+                });
+
+            modelBuilder.Entity("EntityFrameworkCore.Domain.League", b =>
+                {
+                    b.Navigation("Teams");
                 });
 #pragma warning restore 612, 618
         }
