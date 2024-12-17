@@ -34,6 +34,56 @@ namespace EntityFrameworkCore
             //await DeleteRecord();
             //await ExecuteUpdate();
 
+            //var match = new Match
+            //{
+            //    AwayTeamId = 1,
+            //    HomeTeamId = 2,
+            //    HomeTeamScore = 0,
+            //    AwayTeamScore = 0,
+            //    Date = new DateTime(2023,10,1),
+            //    TicketPrice = 20
+            //};
+            //await context.AddAsync(match);
+            //await context.SaveChangesAsync();
+
+            //var coach = new Coach
+            //{
+            //    Name = "Louis"
+            //};
+            //var team = new Team
+            //{
+            //    Name = "新隊伍",
+            //    Coach = coach,
+            //};
+
+            //await context.AddAsync(team);
+            //await context.SaveChangesAsync();
+
+            var league = new League
+            {
+                Name = "新聯賽",
+                Teams = new List<Team>
+                {
+                    new Team
+                    {
+                        Name = "新北隊伍",
+                        Coach = new Coach
+                        {
+                            Name = "Jubey"
+                        }
+                    },
+                    new Team
+                    {
+                        Name = "新竹隊伍",
+                        Coach = new Coach
+                        {
+                            Name = "Demy"
+                        }
+                    }
+                }
+            };
+            await context.AddAsync(league);
+            await context.SaveChangesAsync();
             //更新多筆
             async Task ExecuteUpdate()
             {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EntityFrameworkCore.Data
+namespace EntityFrameworkCore.Data.Configurations
 {
     internal class LeagueConfiguration : IEntityTypeConfiguration<League>
     {

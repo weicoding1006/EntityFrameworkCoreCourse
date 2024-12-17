@@ -49,6 +49,29 @@ namespace EntityFrameworkCore.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coaches");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Jeff"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Tim"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Hani"
+                        });
                 });
 
             modelBuilder.Entity("EntityFrameworkCore.Domain.League", b =>
@@ -114,6 +137,9 @@ namespace EntityFrameworkCore.Data.Migrations
                     b.Property<int>("AwayTeamId")
                         .HasColumnType("int");
 
+                    b.Property<int>("AwayTeamScore")
+                        .HasColumnType("int");
+
                     b.Property<string>("CreatedBy")
                         .HasColumnType("longtext");
 
@@ -126,6 +152,9 @@ namespace EntityFrameworkCore.Data.Migrations
                     b.Property<int>("HomeTeamId")
                         .HasColumnType("int");
 
+                    b.Property<int>("HomeTeamScore")
+                        .HasColumnType("int");
+
                     b.Property<string>("ModifiedBy")
                         .HasColumnType("longtext");
 
@@ -136,6 +165,10 @@ namespace EntityFrameworkCore.Data.Migrations
                         .HasColumnType("decimal(65,30)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AwayTeamId");
+
+                    b.HasIndex("HomeTeamId");
 
                     b.ToTable("Matches");
                 });
@@ -167,11 +200,17 @@ namespace EntityFrameworkCore.Data.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CoachId")
+                        .IsUnique();
+
                     b.HasIndex("LeagueId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Teams");
 
@@ -179,41 +218,83 @@ namespace EntityFrameworkCore.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8364),
+                            CoachId = 1,
+                            CreatedDate = new DateTime(2024, 12, 16, 4, 22, 11, 42, DateTimeKind.Unspecified).AddTicks(9061),
+                            LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍1"
                         },
                         new
                         {
                             Id = 2,
-                            CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8373),
+                            CoachId = 2,
+                            CreatedDate = new DateTime(2024, 12, 16, 4, 22, 11, 42, DateTimeKind.Unspecified).AddTicks(9071),
+                            LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍2"
                         },
                         new
                         {
                             Id = 3,
-                            CoachId = 0,
-                            CreatedDate = new DateTime(2024, 12, 13, 9, 34, 37, 958, DateTimeKind.Unspecified).AddTicks(8374),
+                            CoachId = 3,
+                            CreatedDate = new DateTime(2024, 12, 16, 4, 22, 11, 42, DateTimeKind.Unspecified).AddTicks(9073),
+                            LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍3"
                         });
                 });
 
+            modelBuilder.Entity("EntityFrameworkCore.Domain.Match", b =>
+                {
+                    b.HasOne("EntityFrameworkCore.Domain.Team", "AwayTeam")
+                        .WithMany("AwayMatches")
+                        .HasForeignKey("AwayTeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EntityFrameworkCore.Domain.Team", "HomeTeam")
+                        .WithMany("HomeMatches")
+                        .HasForeignKey("HomeTeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AwayTeam");
+
+                    b.Navigation("HomeTeam");
+                });
+
             modelBuilder.Entity("EntityFrameworkCore.Domain.Team", b =>
                 {
+                    b.HasOne("EntityFrameworkCore.Domain.Coach", "Coach")
+                        .WithOne("Team")
+                        .HasForeignKey("EntityFrameworkCore.Domain.Team", "CoachId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EntityFrameworkCore.Domain.League", "League")
                         .WithMany("Teams")
                         .HasForeignKey("LeagueId");
 
+                    b.Navigation("Coach");
+
                     b.Navigation("League");
+                });
+
+            modelBuilder.Entity("EntityFrameworkCore.Domain.Coach", b =>
+                {
+                    b.Navigation("Team");
                 });
 
             modelBuilder.Entity("EntityFrameworkCore.Domain.League", b =>
                 {
                     b.Navigation("Teams");
+                });
+
+            modelBuilder.Entity("EntityFrameworkCore.Domain.Team", b =>
+                {
+                    b.Navigation("AwayMatches");
+
+                    b.Navigation("HomeMatches");
                 });
 #pragma warning restore 612, 618
         }

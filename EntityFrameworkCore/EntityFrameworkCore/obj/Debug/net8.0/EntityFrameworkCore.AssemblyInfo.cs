@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9e1ac272d257809223d35d01a2b23e031a0057f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5879a0db287c0b972770b7e450439999e203f9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EntityFrameworkCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
