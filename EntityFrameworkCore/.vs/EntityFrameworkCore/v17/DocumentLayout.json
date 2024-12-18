@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{63DECE99-E514-4219-8DEE-9538B147E49F}|EntityFrameworkCore\\EntityFrameworkCore.csproj|solutionrelative:entityframeworkcore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.domain\\league.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{833B3394-27C3-47D8-A01A-898AC0EA3A20}|EntityFrameworkCore.Domain\\EntityFrameworkCore.Domain.csproj|solutionrelative:entityframeworkcore.domain\\league.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|c:\\users\\2309013\\desktop\\\u8AB2\u7A0B\\efcore\u8AB2\u7A0B\\entityframeworkcore\\entityframeworkcore.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{764B046A-8585-4859-928C-17DC8EBD3E3C}|EntityFrameworkCore.Data\\EntityFrameworkCore.Data.csproj|solutionrelative:entityframeworkcore.data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,11 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "League.cs",
+              "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\League.cs",
+              "RelativeDocumentMoniker": "EntityFrameworkCore.Domain\\League.cs",
+              "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Domain\\League.cs",
+              "RelativeToolTip": "EntityFrameworkCore.Domain\\League.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T01:43:12.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore.Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "EntityFrameworkCore.Data\\AppDbContext.cs",
@@ -30,8 +47,7 @@
               "RelativeToolTip": "EntityFrameworkCore.Data\\AppDbContext.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAiwBUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-01T05:18:00.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-01T05:18:00.462Z"
             },
             {
               "$type": "Document",
@@ -41,7 +57,7 @@
               "RelativeDocumentMoniker": "EntityFrameworkCore\\Program.cs",
               "ToolTip": "C:\\Users\\2309013\\Desktop\\\u8AB2\u7A0B\\EFCore\u8AB2\u7A0B\\EntityFrameworkCore\\EntityFrameworkCore\\Program.cs",
               "RelativeToolTip": "EntityFrameworkCore\\Program.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAAAEwAAAAmAAAA",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAqwC4AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-01T04:51:43.288Z",
               "EditorCaption": ""

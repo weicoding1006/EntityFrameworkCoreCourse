@@ -13,7 +13,7 @@ namespace EntityFrameworkCore
         {
             using var context = new AppDbContext();
 
-            await GetAllTeams();
+            //await GetAllTeams();
             //await GetTeamByIdAsync(2);
             //await GetFilteredTeams();
             //await GetCount();
@@ -33,57 +33,87 @@ namespace EntityFrameworkCore
             //await UpdateWithNoTracking();
             //await DeleteRecord();
             //await ExecuteUpdate();
+            //await EagerLoading();
+            await ExplicitLoading();
 
-            //var match = new Match
-            //{
-            //    AwayTeamId = 1,
-            //    HomeTeamId = 2,
-            //    HomeTeamScore = 0,
-            //    AwayTeamScore = 0,
-            //    Date = new DateTime(2023,10,1),
-            //    TicketPrice = 20
-            //};
-            //await context.AddAsync(match);
-            //await context.SaveChangesAsync();
-
-            //var coach = new Coach
-            //{
-            //    Name = "Louis"
-            //};
-            //var team = new Team
-            //{
-            //    Name = "新隊伍",
-            //    Coach = coach,
-            //};
-
-            //await context.AddAsync(team);
-            //await context.SaveChangesAsync();
-
-            var league = new League
+            //Explicit Loading：讓開發者更靈活地控制何時載入關聯資料。
+            //適用於只在需要時載入資料的情況，尤其是在資料量較大時，可以有效控制查詢的效能。
+            async Task ExplicitLoading()
             {
-                Name = "新聯賽",
-                Teams = new List<Team>
+                // 查詢指定ID的聯賽
+                var league = await context.FindAsync<League>(1);
+
+                // 檢查是否已經載入任何與該聯賽相關的隊伍
+                if (!league.Teams.Any())
                 {
-                    new Team
+                    Console.WriteLine("還沒有團隊被載入"); //會觸發
+                }
+
+                // 使用 Entry 和 LoadAsync 顯式地載入聯賽的 Teams
+                await context.Entry(league)
+                    .Collection(q => q.Teams)  // 指定載入 League 的 Teams 屬性
+                    .LoadAsync();  // 顯式載入關聯的 Teams
+
+                // 檢查是否成功載入任何隊伍
+                if (league.Teams.Any())
+                {
+                    // 列印每個隊伍的名稱
+                    foreach (var team in league.Teams)
                     {
-                        Name = "新北隊伍",
-                        Coach = new Coach
-                        {
-                            Name = "Jubey"
-                        }
-                    },
-                    new Team
-                    {
-                        Name = "新竹隊伍",
-                        Coach = new Coach
-                        {
-                            Name = "Demy"
-                        }
+                        Console.WriteLine($"{team.Name}");
                     }
                 }
-            };
-            await context.AddAsync(league);
-            await context.SaveChangesAsync();
+            }
+
+            //Eager Loading 是一種在查詢時就一併載入相關聯資料的技術。
+            //這樣做的好處是可以一次性獲取所需的資料，避免 N+1 查詢問題。
+            async Task EagerLoading()
+            {
+                var leagues = await context.Leagues
+                    .Include(q => q.Teams) // 如果想要資料包含Teams的，需要加入Incule，且在Model內要寫好導航屬性
+                        .ThenInclude(q => q.Coach) //ThenInclude 是依賴於前面使用的 Include 方法所導航到的屬性
+                    .ToListAsync();
+                foreach (var league in leagues)
+                {
+                    Console.WriteLine($"ID:{league.Id} - Name:{league.Name}");
+                    foreach (var team in league.Teams)
+                    {
+                        Console.WriteLine($"隊名:{team.Name} - 教練:{team.Coach.Name}");
+                    }
+                }
+            }
+
+
+            //插入相關聯的資料
+            async Task InsertingRelatedData()
+            {
+                var league = new League
+                {
+                    Name = "新聯賽",
+                    Teams = new List<Team>
+                    {
+                        new Team
+                        {
+                            Name = "新北隊伍",
+                            Coach = new Coach
+                            {
+                                Name = "Jubey"
+                            }
+                        },
+                        new Team
+                        {
+                            Name = "新竹隊伍",
+                            Coach = new Coach
+                            {
+                                Name = "Demy"
+                            }
+                        }
+                    }
+                };
+                await context.AddAsync(league);
+                await context.SaveChangesAsync();
+            }
+            
             //更新多筆
             async Task ExecuteUpdate()
             {
