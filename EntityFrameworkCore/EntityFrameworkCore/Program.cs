@@ -21,7 +21,7 @@ namespace EntityFrameworkCore
             //await GroupByTeams();
             //await OrderBy();
             //await SkipAndTake();
-            //await Select();
+            //await ProjectionsAndSelect();
             //await AsNoTracking();
 
             //await ListVsIQueryable();
@@ -34,7 +34,89 @@ namespace EntityFrameworkCore
             //await DeleteRecord();
             //await ExecuteUpdate();
             //await EagerLoading();
-            await ExplicitLoading();
+            //await InsertMoreMatches();
+            //await DisplayTeamsWithScoresAsync();
+            await DisplayTeamDetailsAsync();
+            //Select應用
+            async Task DisplayTeamDetailsAsync()
+            {
+                var teams = await context.Teams
+                    .Select(q => new TeamDetails
+                    {
+                        TeamId = q.Id,
+                        TeamName = q.Name,
+                        CoachName = q.Coach.Name,
+                        TotalHomeGoals = q.HomeMatches.Sum(x => x.HomeTeamScore), // 計算並累加該球隊所有主場比賽的得分總和
+                        TotalAwayGoals = q.AwayMatches.Sum(x => x.AwayTeamScore)  // 計算並累加該球隊所有客場比賽的得分總和
+                    })
+                    .ToListAsync();
+
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"{team.TeamId} - {team.TeamName} - {team.CoachName}");
+                    Console.WriteLine($"主場總得分:{team.TotalHomeGoals}，客場總得分:{team.TotalAwayGoals}");
+                }
+            }
+
+            async Task DisplayTeamsWithScoresAsync()
+            {
+                var teams = await context.Teams
+                    .Include(q => q.Coach)
+                    .Include(q => q.HomeMatches.Where(q => q.HomeTeamScore > 0))
+                    .ToListAsync();
+
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"{team.Name} - {team.Coach.Name}");
+                    foreach (var match in team.HomeMatches)
+                    {
+                        Console.WriteLine($"Score : {match.HomeTeamScore}");
+                    }
+                }
+            }
+
+            async Task InsertMoreMatches()
+            {
+                var match1 = new Match
+                {
+                    AwayTeamId = 2,
+                    HomeTeamId = 3,
+                    HomeTeamScore = 1,
+                    AwayTeamScore = 0,
+                    Date = new DateTime(2023,01,1),
+                    TicketPrice = 20
+                };
+                var match2 = new Match
+                {
+                    AwayTeamId = 2,
+                    HomeTeamId = 1,
+                    HomeTeamScore = 2,
+                    AwayTeamScore = 1,
+                    Date = new DateTime(2023, 01, 1),
+                    TicketPrice = 25
+                };
+                var match3 = new Match
+                {
+                    AwayTeamId = 4,
+                    HomeTeamId = 1,
+                    HomeTeamScore = 1,
+                    AwayTeamScore = 3,
+                    Date = new DateTime(2023, 01, 1),
+                    TicketPrice = 30
+                };
+                var match4 = new Match
+                {
+                    AwayTeamId = 5,
+                    HomeTeamId = 3,
+                    HomeTeamScore = 2,
+                    AwayTeamScore = 1,
+                    Date = new DateTime(2023, 01, 1),
+                    TicketPrice = 25
+                };
+
+                await context.AddRangeAsync(match1,match2,match3,match4);
+                await context.SaveChangesAsync();
+            }
 
             //Explicit Loading：讓開發者更靈活地控制何時載入關聯資料。
             //適用於只在需要時載入資料的情況，尤其是在資料量較大時，可以有效控制查詢的效能。
@@ -364,7 +446,7 @@ namespace EntityFrameworkCore
                 }
             }
 
-            async Task Select()
+            async Task ProjectionsAndSelect()
             {
                 var teams = await context.Teams
                     .Select(q => new TeamInfo { Name = q.Name, CreatedDate = q.CreatedDate })
