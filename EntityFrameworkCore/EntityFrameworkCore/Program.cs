@@ -2,7 +2,9 @@
 using EntityFrameworkCore.Data.Dtos;
 using EntityFrameworkCore.Domain;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using System.Diagnostics.Metrics;
+using System.Reflection.Metadata;
 
 namespace EntityFrameworkCore
 {
@@ -36,7 +38,85 @@ namespace EntityFrameworkCore
             //await EagerLoading();
             //await InsertMoreMatches();
             //await DisplayTeamsWithScoresAsync();
-            await DisplayTeamDetailsAsync();
+            //await DisplayTeamDetailsAsync();
+            //await QueryingKeylessEtityOrView();
+
+            //await FromSqlRaw();
+            //await FromSqlRawMixingWithLinq();
+
+            async Task FromSqlRawMixingWithLinq()
+            {
+                var teams = await context.Teams.FromSqlInterpolated($"SELECT * FROM Teams")
+                    .Where(q => q.Id == 2)
+                    .Include("League")
+                    .ToListAsync();
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"{team.Name}");
+                    // 如果 League 是單一導航屬性
+                    Console.WriteLine($"{team.League.Name}");
+                }
+
+                //新增
+                var leagudId = 1;
+                var someNewTeamName = "用ExecuteSqlInterpolatedAsync更新的隊伍";
+                var success = await context.Database.ExecuteSqlInterpolatedAsync($"UPDATE Teams SET Name = {someNewTeamName} WHERE Id = {leagudId}");
+                Console.WriteLine(success);
+
+                //刪除
+                var teamToDeleteId = 2;
+                //外鍵約束（Foreign Key Constraint）阻止了刪除操作。錯誤訊息顯示 Teams 表格的記錄正在被 Matches 表格參照（FK_Matches_Teams_AwayTeamId）
+                // 刪除相關記錄
+                await context.Database.ExecuteSqlInterpolatedAsync(
+                    $"DELETE FROM Matches WHERE HomeTeamId = {teamToDeleteId} OR AwayTeamId = {teamToDeleteId}"
+                );
+
+                // 刪除球隊
+                var result = await context.Database.ExecuteSqlInterpolatedAsync(
+                    $"DELETE FROM Teams WHERE Id = {teamToDeleteId}"
+                );
+            }
+
+            async Task FromSqlRaw()
+            {
+                Console.WriteLine("請輸入隊伍名稱");
+                var teamName = Console.ReadLine();
+                var teamNameParam = new MySqlParameter(){
+                    ParameterName = "@teamName",
+                    Value = $"%{teamName}%",
+                    MySqlDbType = MySqlDbType.VarChar
+                }; 
+                var teams = await context.Teams.FromSqlRaw($"SELECT * FROM Teams WHERE name LIKE @teamName",teamNameParam).ToListAsync();
+                foreach(var team in teams)
+                {
+                    Console.WriteLine($"{team.Name}");
+                }
+
+                //FromSqlInterpolated 優點
+                //程式碼更簡潔
+                //自動處理參數化
+                //不需要手動建立參數
+                Console.WriteLine("FromSqlInterpolated寫法---------------------");
+                var searchTerm = $"%{teamName}%";
+                //也可以使用FromSqlInterpolated
+                teams = await context.Teams.FromSqlInterpolated($"SELECT * FROM Teams WHERE name LIKE {searchTerm}").ToListAsync();
+                foreach (var team in teams)
+                {
+                    Console.WriteLine($"{team.Name}");
+                }
+            }
+
+
+            async Task QueryingKeylessEtityOrView()
+            {
+                var details = await context.TeamsAndLeaguesView.ToListAsync();
+                foreach (var detail in details)
+                {
+                    Console.WriteLine($"{detail.Name} - {detail.LeagueName}");
+                }
+            }
+
+
             //Select應用
             async Task DisplayTeamDetailsAsync()
             {

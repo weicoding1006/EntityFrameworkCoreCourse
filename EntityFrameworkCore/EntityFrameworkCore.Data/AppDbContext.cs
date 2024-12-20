@@ -20,6 +20,7 @@ namespace EntityFrameworkCore.Data
         public DbSet<Coach> Coaches { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Match> Matches { get; set; }
+        public DbSet<TeamsAndLeaguesView> TeamsAndLeaguesView { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -44,6 +45,9 @@ namespace EntityFrameworkCore.Data
             //modelBuilder.ApplyConfiguration(new TeamConfiguration());
             //modelBuilder.ApplyConfiguration(new LeagueConfiguration());
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.Entity<TeamsAndLeaguesView>()  // 配置 TeamsAndLeaguesView 實體
+                .HasNoKey()                             // 告訴 EF Core 這個實體沒有主鍵
+                .ToView("vw_TeamsAndLeagues");          // 指定這是一個資料庫視圖，而不是實體表格
         }
     }
 }

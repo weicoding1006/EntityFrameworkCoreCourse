@@ -4,6 +4,7 @@ using EntityFrameworkCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EntityFrameworkCore.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241220015136_新增")]
+    partial class 新增
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -219,7 +222,7 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 1,
                             CoachId = 1,
-                            CreatedDate = new DateTime(2024, 12, 20, 1, 55, 21, 601, DateTimeKind.Unspecified).AddTicks(8501),
+                            CreatedDate = new DateTime(2024, 12, 20, 1, 51, 36, 103, DateTimeKind.Unspecified).AddTicks(811),
                             LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍1"
@@ -228,7 +231,7 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 2,
                             CoachId = 2,
-                            CreatedDate = new DateTime(2024, 12, 20, 1, 55, 21, 601, DateTimeKind.Unspecified).AddTicks(8508),
+                            CreatedDate = new DateTime(2024, 12, 20, 1, 51, 36, 103, DateTimeKind.Unspecified).AddTicks(837),
                             LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍2"
@@ -237,7 +240,7 @@ namespace EntityFrameworkCore.Data.Migrations
                         {
                             Id = 3,
                             CoachId = 3,
-                            CreatedDate = new DateTime(2024, 12, 20, 1, 55, 21, 601, DateTimeKind.Unspecified).AddTicks(8510),
+                            CreatedDate = new DateTime(2024, 12, 20, 1, 51, 36, 103, DateTimeKind.Unspecified).AddTicks(839),
                             LeagueId = 1,
                             ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "測試隊伍3"
